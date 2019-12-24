@@ -182,10 +182,10 @@ namespace OpenRPA
                 catch (Exception ex)
                 {
                     Log.Error(ex.ToString());
-                }                
+                }
             });
             await Task.Run(() =>
-            {                
+            {
                 // LoadLayout();
                 if (!string.IsNullOrEmpty(Config.local.wsurl))
                 {
@@ -447,7 +447,7 @@ namespace OpenRPA
                 if (Projects.Count == 0)
                 {
                     OnOpen(null);
-                    string Name = "New Project";
+                    string Name = OpenRPA.Resources.strings.newproject;
                     try
                     {
                         Project project = await Project.Create(Interfaces.Extensions.ProjectsDirectory, Name, true);
@@ -961,12 +961,12 @@ namespace OpenRPA
             {
 
                 var VirtualClick = model.GetValue<bool>("VirtualClick");
-                if(VirtualClick)
+                if (VirtualClick)
                 {
                     var modelService = designer.WorkflowDesigner.Context.Services.GetService<System.Activities.Presentation.Services.ModelService>();
                     using (var editingScope = modelService.Root.BeginEdit("Implementation"))
                     {
-                        model.Properties["VirtualClick"].ComputedValue = new InArgument<bool>(){Expression = new VisualBasicValue<bool>("false")};
+                        model.Properties["VirtualClick"].ComputedValue = new InArgument<bool>() { Expression = new VisualBasicValue<bool>("false") };
                         editingScope.Complete();
                     }
                 }
@@ -1161,7 +1161,7 @@ namespace OpenRPA
                 }
                 var dialogOpen = new Microsoft.Win32.OpenFileDialog
                 {
-                    Title = "Open Workflow",
+                    Title = OpenRPA.Resources.strings.open_project,
                     Filter = "OpenRPA Project (.rpaproj)|*.rpaproj"
                 };
                 if (wf != null || p != null) dialogOpen.Filter = "Workflows (.xaml)|*.xaml|OpenRPA Project (.rpaproj)|*.rpaproj";
@@ -1592,7 +1592,7 @@ namespace OpenRPA
                     view.onOpenProject += OnOpenProject;
                     view.onOpenWorkflow += OnOpenWorkflow;
 
-                    LayoutDocument layoutDocument = new LayoutDocument { Title = "Open project" };
+                    LayoutDocument layoutDocument = new LayoutDocument { Title = OpenRPA.Resources.strings.open_project };
                     layoutDocument.ContentId = "openproject";
                     layoutDocument.CanClose = false;
                     layoutDocument.Content = view;
@@ -1617,7 +1617,7 @@ namespace OpenRPA
                     if (document.Content is Views.DetectorsView op) { document.IsSelected = true; return; }
                 }
                 var view = new Views.DetectorsView(this);
-                LayoutDocument layoutDocument = new LayoutDocument { Title = "Detectors" };
+                LayoutDocument layoutDocument = new LayoutDocument { Title = OpenRPA.Resources.strings.detectors };
                 layoutDocument.ContentId = "detectors";
                 layoutDocument.Content = view;
                 MainTabControl.Children.Add(layoutDocument);
@@ -1634,7 +1634,7 @@ namespace OpenRPA
                     if (document.Content is Views.RunPlugins op) { document.IsSelected = true; return; }
                 }
                 var view = new Views.RunPlugins();
-                LayoutDocument layoutDocument = new LayoutDocument { Title = "Run Plugins" };
+                LayoutDocument layoutDocument = new LayoutDocument { Title = OpenRPA.Resources.strings.runplugins };
                 layoutDocument.ContentId = "detectors";
                 layoutDocument.Content = view;
                 MainTabControl.Children.Add(layoutDocument);
@@ -1651,7 +1651,7 @@ namespace OpenRPA
                     if (document.Content is Views.RecorderPlugins op) { document.IsSelected = true; return; }
                 }
                 var view = new Views.RecorderPlugins();
-                LayoutDocument layoutDocument = new LayoutDocument { Title = "Recorder Plugins" };
+                LayoutDocument layoutDocument = new LayoutDocument { Title = OpenRPA.Resources.strings.recorderplugins };
                 layoutDocument.ContentId = "detectors";
                 layoutDocument.Content = view;
                 MainTabControl.Children.Add(layoutDocument);
@@ -1790,15 +1790,15 @@ namespace OpenRPA
                         var las = DManager.Layout.Descendents().OfType<LayoutAnchorable>().ToList();
                         foreach (var dp in las)
                         {
-                            if (dp.Title == "Toolbox")
+                            if (dp.Title == OpenRPA.Resources.strings.dock_toolbox)
                             {
                                 if (dp.IsAutoHidden) { dp.ToggleAutoHide(); }
                             }
-                            if (dp.Title == "Properties")
+                            if (dp.Title == OpenRPA.Resources.strings.dock_properties)
                             {
                                 if (dp.IsAutoHidden) { dp.ToggleAutoHide(); }
                             }
-                            if (dp.Title == "Snippets")
+                            if (dp.Title == OpenRPA.Resources.strings.dock_snippets)
                             {
                                 if (dp.IsAutoHidden) { dp.ToggleAutoHide(); }
                             }
@@ -2289,7 +2289,7 @@ namespace OpenRPA
                         return false;
                     }
                 }
-                if(designer.IsSequenceSelected) return !isRecording;
+                if (designer.IsSequenceSelected) return !isRecording;
                 return false;
 
             }
@@ -2531,7 +2531,7 @@ namespace OpenRPA
                             }
                             else { e.SupportInput = false; }
                             isRecording = true;
-                        } 
+                        }
                         else if (e.SupportSelect)
                         {
                             var win = new Views.InsertSelect(e.Element)
@@ -2545,8 +2545,9 @@ namespace OpenRPA
                                 e.ClickHandled = true;
                                 e.a.AddInput(win.SelectedItem.Name, e.Element);
                             }
-                            else { 
-                                e.SupportSelect = false; 
+                            else
+                            {
+                                e.SupportSelect = false;
                             }
                             InputDriver.Instance.CallNext = false;
                             isRecording = true;
@@ -2913,11 +2914,11 @@ namespace OpenRPA
         private void searchBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             QuickLaunchItem item = null;
-            if (searchBox.SelectedItem!=null && searchBox.SelectedItem is QuickLaunchItem)
+            if (searchBox.SelectedItem != null && searchBox.SelectedItem is QuickLaunchItem)
             {
                 item = searchBox.SelectedItem as QuickLaunchItem;
             }
-            if(item == null)
+            if (item == null)
             {
                 return;
             }

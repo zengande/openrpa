@@ -26,6 +26,13 @@ namespace OpenRPA.Views
     /// </summary>
     public partial class WFToolbox : UserControl
     {
+        private readonly string[] ExcludeActivities = { "AddValidationError", "AndAlso", "AssertValidation", "CreateBookmarkScope", "DeleteBookmarkScope", "DynamicActivity",
+                            "CancellationScope", "CompensableActivity", "Compensate", "Confirm", "GetChildSubtree", "GetParentChain", "GetWorkflowTree", "Add`3",  "And`3", "As`2", "Cast`2",
+                        "Cast`2", "ArgumentValue`1", "ArrayItemReference`1", "ArrayItemValue`1", "Assign`1", "Constraint`1","CSharpReference`1", "CSharpValue`1", "DelegateArgumentReference`1",
+                            "DelegateArgumentValue`1", "Divide`3", "DynamicActivity`1", "Equal`3", "FieldReference`2", "FieldValue`2", "ForEach`1", "InvokeAction", "InvokeDelegate",
+                        "ArgumentReference`1", "VariableReference`1", "VariableValue`1", "VisualBasicReference`1", "VisualBasicValue`1", "InvokeMethod`1",
+                        "StateMachineWithInitialStateFactory", "ParallelForEach","ParallelForEach`1", "ParallelForEachWithBodyFactory", "ForEachWithBodyFactory" };
+
         // public ToolboxControl toolbox { get; set; } = null;
         public WFToolbox()
         {
@@ -44,18 +51,13 @@ namespace OpenRPA.Views
 
                 // check if assemblies contain activities
                 int activitiesCount = 0;
-                foreach (System.Reflection.Assembly activityLibrary in appAssemblies.Where(p => !p.IsDynamic))
+                var assemblies = appAssemblies.Where(p => !p.IsDynamic);
+                foreach (System.Reflection.Assembly activityLibrary in assemblies)
                 {
                     try
                     {
-                        string[] excludeActivities = { "AddValidationError", "AndAlso", "AssertValidation", "CreateBookmarkScope", "DeleteBookmarkScope", "DynamicActivity",
-                            "CancellationScope", "CompensableActivity", "Compensate", "Confirm", "GetChildSubtree", "GetParentChain", "GetWorkflowTree", "Add`3",  "And`3", "As`2", "Cast`2",
-                        "Cast`2", "ArgumentValue`1", "ArrayItemReference`1", "ArrayItemValue`1", "Assign`1", "Constraint`1","CSharpReference`1", "CSharpValue`1", "DelegateArgumentReference`1",
-                            "DelegateArgumentValue`1", "Divide`3", "DynamicActivity`1", "Equal`3", "FieldReference`2", "FieldValue`2", "ForEach`1", "InvokeAction", "InvokeDelegate",
-                        "ArgumentReference`1", "VariableReference`1", "VariableValue`1", "VisualBasicReference`1", "VisualBasicValue`1", "InvokeMethod`1",
-                        "StateMachineWithInitialStateFactory", "ParallelForEach","ParallelForEach`1", "ParallelForEachWithBodyFactory", "ForEachWithBodyFactory" };
-
-                        var wfToolboxCategory = new ToolboxCategory(activityLibrary.GetName().Name);
+                        var name = activityLibrary.GetName().Name;
+                        var wfToolboxCategory = new ToolboxCategory(name);
                         var actvities = from
                                             activityType in activityLibrary.GetExportedTypes()
                                         where
@@ -75,7 +77,7 @@ namespace OpenRPA.Views
                                             && !activityType.IsNested
                                             && !activityType.IsAbstract
                                             && (activityType.GetConstructor(Type.EmptyTypes) != null)
-                                            && !excludeActivities.Contains(activityType.Name)
+                                            && !ExcludeActivities.Contains(activityType.Name)
                                             && !activityType.Name.StartsWith("InvokeAction`")
                                             && !activityType.Name.StartsWith("InvokeFunc`")
                                             && !activityType.Name.StartsWith("Subtract`")

@@ -378,4 +378,13 @@
   <data name="warning" xml:space="preserve">
     <value>Advarsler</value>
   </data>
+  <data name="open_project" xml:space="preserve">
+    <value>Åbn projekt</value>
+  </data>
+  <data name="open_workflow" xml:space="preserve">
+    <value>Åbn arbejdsflow</value>
+  </data>
+  <data name="title" xml:space="preserve">
+    <value>小摩 RPA</value>
+  </data>
 </root>

@@ -49,15 +49,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenRPA.OpenFlowDB", "OpenR
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nsis", "nsis", "{00A8B562-FC2E-4D12-A778-462F0292611E}"
 	ProjectSection(SolutionItems) = preProject
-		openrpa.nsi = openrpa.nsi
-		ReplaceInFile.nsh = ReplaceInFile.nsh
-		StrRep.nsh = StrRep.nsh
-		test.nsi = test.nsi
+		nsis\openrpa.nsi = nsis\openrpa.nsi
+		nsis\ReplaceInFile.nsh = nsis\ReplaceInFile.nsh
+		nsis\StrRep.nsh = nsis\StrRep.nsh
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenRPA.Utilities", "OpenRPA.Utilities\OpenRPA.Utilities.csproj", "{A81145BC-37F1-42E4-B3CB-5221E08BB222}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenRPA.CodeEditor", "OpenRPA.CodeEditor\OpenRPA.CodeEditor.csproj", "{A71E984D-180B-4EE3-85C1-86F3937A2B0F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenRPA.CodeEditor", "OpenRPA.CodeEditor\OpenRPA.CodeEditor.csproj", "{A71E984D-180B-4EE3-85C1-86F3937A2B0F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -264,7 +263,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {40D49710-F666-4479-96E1-FFC3BA0D3D5A}
 		BuildVersion_StartDate = 2000/1/1
+		SolutionGuid = {40D49710-F666-4479-96E1-FFC3BA0D3D5A}
 	EndGlobalSection
 EndGlobal

@@ -119,7 +119,7 @@
     </None>
   </ItemGroup>
   <Target Name="PostBuild" AfterTargets="Pack" Condition="'$(Configuration)' == 'Debug'">
-    <Exec Command="copy $(OutputPath)..\$(PackageId).$(PackageVersion).nupkg C:\code\OpenRPA\packages" />
+    <Exec Command="copy $(OutputPath)..\$(PackageId).$(PackageVersion).nupkg F:\code\OpenRPA\packages" />
   </Target>
   <ProjectExtensions>
     <VisualStudio>
@@ -127,6 +127,6 @@
     </VisualStudio>
   </ProjectExtensions>
   <Target Name="PostBuild" AfterTargets="Pack" Condition="'$(Configuration)' == 'PrepInstaller'">
-    <Exec Command="copy $(OutputPath)..\$(PackageId).$(PackageVersion).nupkg C:\code\OpenRPA\packages" />
+    <Exec Command="copy $(OutputPath)..\$(PackageId).$(PackageVersion).nupkg F:\code\OpenRPA\packages" />
   </Target>
 </Project>
