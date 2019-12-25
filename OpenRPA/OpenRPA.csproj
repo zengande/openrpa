@@ -6,7 +6,7 @@
     <StartupObject />
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <!--<NuspecFile>nuget.nuspec</NuspecFile>-->
-    <Description>Base UI of OpenRPA</Description>
+    <Description>小摩 RPA</Description>
     <PackageLicenseExpression>MPL-2.0</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/open-rpa/openrpa</PackageProjectUrl>
     <Version>1.0.63</Version>
@@ -54,6 +54,10 @@
 </PackageReleaseNotes>
     <PackageIcon>open_rpa128.png</PackageIcon>
     <Configurations>Debug;Release;ReleaseNuget;PrepInstaller</Configurations>
+    <Company>杭州云策网络技术有限公司</Company>
+    <PackageId>XiaoMoRPA</PackageId>
+    <AssemblyName>OpenRPA</AssemblyName>
+    <Product>小摩RPA</Product>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <OutputPath>..\debug</OutputPath>

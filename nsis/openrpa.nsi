@@ -5,8 +5,8 @@
 !include "StrRep.nsh"
 !include "ReplaceInFile.nsh"
 
-Name "OpenRPA"
-OutFile "OpenRPA.exe"
+Name "СĦRPA.exe"
+OutFile "СĦRPA.exe"
 InstallDir $PROGRAMFILES\OpenRPA
 function .onInit
     ${If} ${RunningX64}
@@ -117,7 +117,7 @@ SectionEnd
 Section "Start Menu Shortcuts" ; section 1
   CreateDirectory "$SMPROGRAMS\OpenRPA"
   CreateShortcut "$SMPROGRAMS\OpenRPA\Uninstall.lnk" "$INSTDIR\uninstall.exe" "" "$INSTDIR\uninstall.exe" 0
-  CreateShortcut "$SMPROGRAMS\OpenRPA\OpenRPA.lnk" "$INSTDIR\OpenRPA.exe" "" "$INSTDIR\OpenRPA.exe" 0
+  CreateShortcut "$SMPROGRAMS\OpenRPA\СĦRPA.lnk" "$INSTDIR\OpenRPA.exe" "" "$INSTDIR\OpenRPA.exe" 0
 SectionEnd
 
 Section "Uninstall"
