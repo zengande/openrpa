@@ -53,12 +53,13 @@
       1.0.21 hitfixing "missing snippets" error
       1.0.19 DownloadFile/UploadeFile renamed GetFile/Save file. Added DownloadFole, Added a Snippets liberary with examples
 </PackageReleaseNotes>
-    <PackageIcon>open_rpa128.png</PackageIcon>
+    <PackageIcon>logo128.png</PackageIcon>
     <Configurations>Debug;Release;ReleaseNuget;PrepInstaller</Configurations>
     <Company>杭州云策网络技术有限公司</Company>
     <PackageId>XiaoMoRPA</PackageId>
     <AssemblyName>OpenRPA</AssemblyName>
     <Product>小摩RPA</Product>
+    <PackageIconUrl />
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <OutputPath>..\debug</OutputPath>
@@ -81,7 +82,7 @@
   </Target>
   <ItemGroup>
     <!-- https://tyrrrz.me/blog/additional-nuget-files-in-new-csproj -->
-    <None Include="Resources\open_rpa128.png" Pack="true" PackagePath="\" />
+    <None Include="Resources\logo128.png" Pack="true" PackagePath="\" />
     <None Include="$(OutputPath)\OpenRPA.exe.config" Pack="true" PackagePath="build" />
   </ItemGroup>
   <ItemGroup>
@@ -210,6 +211,7 @@
     <None Remove="Resources\icons\openin.png" />
     <None Remove="Resources\icons\property.png" />
     <None Remove="Resources\icons\variable.png" />
+    <None Remove="Resources\logo.ico" />
     <None Remove="Resources\open.png" />
     <None Remove="Resources\open_flow.ico" />
     <None Remove="Resources\open_flow_org.ico" />
@@ -400,11 +402,11 @@
     <Resource Include="Resources\icons\openin.png" />
     <Resource Include="Resources\icons\property.png" />
     <Resource Include="Resources\icons\variable.png" />
+    <Resource Include="Resources\logo.ico" />
     <Resource Include="Resources\open.png" />
     <Resource Include="Resources\open_flow.ico" />
     <Resource Include="Resources\open_flow_org.ico" />
     <Resource Include="Resources\open_rpa.ico" />
-    <Resource Include="Resources\open_rpa128.png" />
     <Resource Include="Resources\open_rpa512.png" />
     <EmbeddedResource Include="Resources\toolbox\addentitypermission.png" />
     <EmbeddedResource Include="Resources\toolbox\breakpoint.png" />

@@ -48,7 +48,7 @@ namespace OpenRPA
             //    }
             //    Application.Current.Shutdown(0);
             //}
-            var iconStream = System.Windows.Application.GetResourceStream(new Uri("pack://application:,,,/Resources/open_rpa.ico")).Stream;
+            var iconStream = System.Windows.Application.GetResourceStream(new Uri("pack://application:,,,/Resources/logo.ico")).Stream;
             notifyIcon.Icon = new System.Drawing.Icon(iconStream);
             notifyIcon.Visible = false;
             //notifyIcon.ShowBalloonTip(5000, "Title", "Text", System.Windows.Forms.ToolTipIcon.Info);

@@ -18,6 +18,7 @@
 
     <Window.Resources>
         <local:BindingProxy x:Key="proxy" Data="{Binding}" />
+        
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
