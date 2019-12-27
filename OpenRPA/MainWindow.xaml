@@ -267,12 +267,20 @@
         <avalonDock:DockingManager Grid.Row="1" x:Name="DManager" ActiveContentChanged="DManager_ActiveContentChanged">
             <avalonDock:DockingManager.Theme>
                 <!--<avalonDock:AeroTheme/>-->
-                <avalonDock:VS2010Theme/>
+                <!--<avalonDock:VS2010Theme/>-->
                 <!--<avalonDock:ExpressionDarkTheme/>-->
                 <!--<avalonDock:ExpressionLightTheme/>-->
-                <!--<avalonDock:GenericTheme/>-->
+                <avalonDock:GenericTheme/>
                 <!--<avalonDock:MetroTheme/>-->
             </avalonDock:DockingManager.Theme>
+            <avalonDock:DockingManager.DocumentHeaderTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal" Margin="4">
+                        <Image Source="{Binding IconSource}" Margin="0,0,4,0"/>
+                        <TextBlock Text="{Binding Title}" />
+                    </StackPanel>
+                </DataTemplate>
+            </avalonDock:DockingManager.DocumentHeaderTemplate>
             <avalonDock:DockingManager.LayoutItemContainerStyle>
                 <Style TargetType="{x:Type dockctrl:LayoutItem}" >
                     <Setter Property="Title" Value="{Binding Model.Title}" />
